@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Github API</title>
+        <link rel="stylesheet" href="./styles/style.css" />
+        <script
+            src="https://kit.fontawesome.com/7d6f1dcf72.js"
+            crossorigin="anonymous"
+        ></script>
+    </head>
+    <body>
+        <div class="container__wrapper">
+            <div class="container">
+                <div class="container__title">
+                    <h1>Github Profile</h1>
+                    <form class="container__searchbox" onsubmit="getInfos(event)">
+                        <input type="text" name="username" id="username" autocomplete="off" required/>
+                        <button type="submit">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </form>
+                </div>
+                <!-- <div class="github__info">
+                    <div class="btn-close">
+                        <i class="fa-solid fa-square-xmark"></i>
+                    </div>
+                    <div class="github__avatar"></div>
+                    <h1 class="github__username">Italo Braga</h1>
+                    <div class="github__stats">
+                        <div class="github__stat">
+                            <span class="n__repo">24</span>
+                            <span>Repositórios</span>
+                        </div>
+                        <div class="github__stat">
+                            <span class="n__follow">19</span>
+                            <span>Seguidores</span>
+                        </div>
+                        <div class="github__stat">
+                            <span class="n__seguindo">23</span>
+                            <span>Seguindo</span>
+                        </div>
+                    </div>
+                </div> -->
+                <div class="res"></div>
+            </div>
+        </div>
+        <script src="./scripts/script.js"></script>
+    </body>
+</html>
