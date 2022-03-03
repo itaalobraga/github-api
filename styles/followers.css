@@ -1,0 +1,20 @@
+.followers__container {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.follower__profile {
+    appearance: none;
+    text-decoration: none;
+}
+
+.follower__avatar {
+    max-width: 100px;
+}
+
+.follower__avatar > img {
+    width: 100%;
+    border: 2px solid white;
+    border-radius: 50%;
+}
