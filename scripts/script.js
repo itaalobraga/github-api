@@ -15,14 +15,11 @@ const createContainer = () => {
 
 const getRepos = async () => {
     clearRes();
-    try {
-        const url = `https://api.github.com/users/${user.value}/repos`;
-        const response = await fetch(url);
-        const data = await response.json();
-        showRepos(data);
-    } catch (error) {
-        console.log(error);
-    }
+
+    const url = `https://api.github.com/users/${user.value}/repos`;
+    const response = await fetch(url);
+    const data = await response.json();
+    showRepos(data);
 };
 
 const showRepos = (repositories) => {
@@ -54,14 +51,11 @@ const showRepos = (repositories) => {
 
 const getFollowers = async () => {
     clearRes();
-    try {
-        const url = `https://api.github.com/users/${user.value}/followers`;
-        const response = await fetch(url);
-        const data = await response.json();
-        showFollowers(data);
-    } catch (error) {
-        console.log(error);
-    }
+
+    const url = `https://api.github.com/users/${user.value}/followers`;
+    const response = await fetch(url);
+    const data = await response.json();
+    showFollowers(data);
 };
 
 const showFollowers = (data) => {
@@ -152,14 +146,10 @@ const showInfos = (data) => {
 
 const getFollowing = async () => {
     clearRes();
-    try {
-        const url = `https://api.github.com/users/${user.value}/following`;
-        const response = await fetch(url);
-        const data = await response.json();
-        showFollowing(data);
-    } catch (error) {
-        console.log(error);
-    }
+    const url = `https://api.github.com/users/${user.value}/following`;
+    const response = await fetch(url);
+    const data = await response.json();
+    showFollowing(data);
 };
 
 const showFollowing = (data) => {
