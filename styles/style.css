@@ -16,13 +16,14 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 80vh;
+    min-height: 100vh;
 }
 
 .container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 1.2rem;
     max-width: 600px;
     width: 100%;
     padding: 1.2rem;
@@ -33,10 +34,8 @@ body {
     flex-direction: column;
     align-items: center;
     border-radius: 4px;
-    padding: 1.2rem;
-    gap: 1.2rem;
+    gap: 2.2rem;
     width: 100%;
-    height: 180px;
 }
 
 .container__title.off {
@@ -46,6 +45,7 @@ body {
 .container__title > h1 {
     font-weight: 700;
     font-size: 4rem;
+    text-shadow: 0 0 .1rem #424242;
 }
 
 .container__searchbox {
@@ -72,6 +72,11 @@ body {
     font-size: 1.1rem;
     color: #e9e9e9;
     cursor: pointer;
+    transition: .4s;
+}
+
+.container__searchbox > button:hover {
+    transform: scale(.9);
 }
 
 .github__info {
@@ -79,7 +84,6 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 1.2rem;
     position: relative;
     padding: 1.2rem;
     background-color: #686868;
@@ -90,6 +94,7 @@ body {
     height: 100%;
     border-bottom: .4rem solid #ff9900;
     border-radius: 8px;
+    box-shadow: 0 0 4px #424242;
 }
 
 .infos__container {
@@ -141,25 +146,45 @@ body {
 }
 
 .github__username {
+    color: #ffffff;
+    text-shadow: 0 0 .1rem #424242;
     font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.github__bio {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 1.2rem 0;
+}
+
+.github__bio__title {
+    color: #424242;
+}
+
+.github__bio__description {
+    font-size: 90%;
 }
 
 .github__statistics {
     display: flex;
     justify-content: center;
     gap: 2rem;
-    margin-top: 2rem;
     width: 100%;
 }
-
+    
 .github__statistic {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
     border-radius: 8px;
-    border-bottom: .2rem solid #ffffff;
-    padding: .2rem;
+    background-color: #424242;
+    box-shadow: 0 0 4px #424242;
+    padding: .8rem;
     transition: .4s;
     cursor: pointer;
 }
@@ -171,6 +196,7 @@ body {
 .github__statistic__item {
     font-size: 1.2rem;
     font-weight: 700;
+    color: #ff9900;
 }
 
 .res {
@@ -186,5 +212,18 @@ body {
     }
     .github__statistics {
         flex-direction: column;
+        align-items: center;
+    }
+    .container__title > h1 {
+        text-align: center;
+    }
+    .container__searchbox {
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+    }
+    .container__searchbox > input {
+        min-height: 2rem;
     }
 }

@@ -24,7 +24,7 @@ const getRepos = async () => {
 
 const showRepos = (repositories) => {
     const container = document.createElement('div');
-    container.classList.add('github__info');
+    container.classList.add('github__info', 'repositories');
     container.innerHTML = `   
     <div class="btn-close" onclick=showInfos(data)>
         <i class="fa-solid fa-square-xmark"></i>
@@ -36,11 +36,23 @@ const showRepos = (repositories) => {
     repositories.forEach((repository) => {
         const repositoryElement = document.createElement('div');
         repositoryElement.classList.add('infos__item', 'repository');
-        repositoryElement.innerHTML = `
-        <h1 class="repositories__title">${repository.name}</h1>
+        if (!!repository.description) {
+            repositoryElement.innerHTML = `
+            <h1 class="repositories__title">${repository.name}</h1>
             <p class="repositories__description">${repository.description}</p>
-        <a href="${repository.html_url}" class="repositories__link" target="_blank">See on Github</a>
-        `;
+            <div class="repositories__link>
+            <a href="${repository.html_url}" target="_blank">See on Github</a>
+            </div>
+            `;
+        } else {
+            repositoryElement.innerHTML = `
+            <h1 class="repositories__title">${repository.name}</h1>
+            <p class="repositories__description">Without description</p>
+            <div class="repositories__link>
+            <a href="${repository.html_url}" target="_blank">See on Github</a>
+            </div>
+            `;
+        }
 
         infosContainer.appendChild(repositoryElement);
     });
@@ -60,7 +72,7 @@ const getFollowers = async () => {
 
 const showFollowers = (data) => {
     const container = document.createElement('div');
-    container.classList.add('github__info');
+    container.classList.add('github__info', 'followers');
     container.innerHTML = `   
     <div class="btn-close" onclick=showInfos(data)>
         <i class="fa-solid fa-square-xmark"></i>
@@ -97,19 +109,25 @@ const getInfos = async (event) => {
     const response = await fetch(url);
 
     if (response.status == 404) {
-        alert('user not found');
+        res.innerHTML = 'User not found!'
         return;
     }
 
-    const { name, public_repos, followers, following, avatar_url } =
+    const { name, bio, public_repos, followers, following, avatar_url } =
         await response.json();
     data = {
         name: name,
+        bio: bio,
         repositories: public_repos,
         followers: followers,
         followings: following,
         avatar: avatar_url,
     };
+
+    if(!data.name) {
+        res.innerHTML = 'User not found!'
+        return
+    }
 
     handleContainer();
     showInfos(data);
@@ -119,7 +137,8 @@ const showInfos = (data) => {
     clearRes();
     const container = document.createElement('div');
     container.classList.add('github__info');
-    container.innerHTML = `
+    if (!!data.bio) {
+        container.innerHTML = `
     <div class="btn-close" onclick='returnHome()'>
     <i class="fa-solid fa-square-xmark"></i>
     </div>
@@ -127,6 +146,10 @@ const showInfos = (data) => {
     <img src="${data.avatar}" alt="">
     </div>
     <h1 class="github__username">${data.name}</h1>
+    <div class="github__bio">
+    <h2 class="github__bio__title">Bio</h2>
+    <p class="github__bio__description">${data.bio}.</p>
+    </div>
     <div class="github__statistics">
     <div class="github__statistic" onclick="getRepos()">
     <span class="github__statistic__item">${data.repositories}</span>
@@ -141,6 +164,34 @@ const showInfos = (data) => {
     <span>Seguindo</span>
     </div>
     </div>`;
+    } else {
+        container.innerHTML = `
+    <div class="btn-close" onclick='returnHome()'>
+    <i class="fa-solid fa-square-xmark"></i>
+    </div>
+    <div class="github__avatar">
+    <img src="${data.avatar}" alt="">
+    </div>
+    <h1 class="github__username">${data.name}</h1>
+    <div class="github__bio">
+    <h2 class="github__bio__title">Bio</h2>
+    <p class="github__bio__description">Without bio.</p>
+    </div>
+    <div class="github__statistics">
+    <div class="github__statistic" onclick="getRepos()">
+    <span class="github__statistic__item">${data.repositories}</span>
+    <span>Repositórios</span>
+    </div>
+    <div class="github__statistic" onclick="getFollowers()">
+    <span class="github__statistic__item">${data.followers}</span>
+    <span>Seguidores</span>
+    </div>
+    <div class="github__statistic" onclick="getFollowing()">
+    <span class="github__statistic__item">${data.followings}</span>
+    <span>Seguindo</span>
+    </div>
+    </div>`;
+    }
     res.appendChild(container);
 };
 
@@ -154,7 +205,7 @@ const getFollowing = async () => {
 
 const showFollowing = (data) => {
     const container = document.createElement('div');
-    container.classList.add('github__info');
+    container.classList.add('github__info', 'following');
     container.innerHTML = `   
     <div class="btn-close" onclick=showInfos(data)>
         <i class="fa-solid fa-square-xmark"></i>
