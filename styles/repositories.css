@@ -1,0 +1,22 @@
+.infos__item.repository {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1.2rem;
+    padding: 0.8rem;
+    width: 80%;
+    border-radius: 8px;
+    margin: 1rem 0;
+    background-color: #424242;
+    font-size: 100%;
+}
+
+.repositories__item:first-child {
+    margin: 0;
+}
+
+.repositories__link {
+    color: #ffffff;
+    text-decoration: underline;
+}

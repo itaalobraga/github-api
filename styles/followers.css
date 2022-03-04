@@ -1,20 +1,26 @@
-.followers__container {
+.infos__item.followers {
     display: flex;
-    gap: 2rem;
+    justify-content: space-around;
     align-items: center;
+    flex-direction: row;
+    padding: 0.8rem;
+    width: 80%;
+    border-radius: 8px;
+    margin: 1rem 0;
+    background-color: #424242;
+    font-size: 100%;
 }
 
-.follower__profile {
-    appearance: none;
-    text-decoration: none;
+.follower__profile > a > svg{
+    color: #ffffff;
 }
 
 .follower__avatar {
-    max-width: 100px;
+    max-width: 95px;
 }
 
 .follower__avatar > img {
     width: 100%;
-    border: 2px solid white;
+    border: 2px solid #ffffff;
     border-radius: 50%;
 }
