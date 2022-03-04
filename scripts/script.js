@@ -153,15 +153,15 @@ const showInfos = (data) => {
     <div class="github__statistics">
     <div class="github__statistic" onclick="getRepos()">
     <span class="github__statistic__item">${data.repositories}</span>
-    <span>Repositórios</span>
+    <span>Repositories</span>
     </div>
     <div class="github__statistic" onclick="getFollowers()">
     <span class="github__statistic__item">${data.followers}</span>
-    <span>Seguidores</span>
+    <span>Followers</span>
     </div>
     <div class="github__statistic" onclick="getFollowing()">
     <span class="github__statistic__item">${data.followings}</span>
-    <span>Seguindo</span>
+    <span>Followed</span>
     </div>
     </div>`;
     } else {
