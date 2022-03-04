@@ -40,7 +40,7 @@ const showRepos = (repositories) => {
             repositoryElement.innerHTML = `
             <h1 class="repositories__title">${repository.name}</h1>
             <p class="repositories__description">${repository.description}</p>
-            <div class="repositories__link>
+            <div class="repositories__link">
             <a href="${repository.html_url}" target="_blank">See on Github</a>
             </div>
             `;
@@ -48,7 +48,7 @@ const showRepos = (repositories) => {
             repositoryElement.innerHTML = `
             <h1 class="repositories__title">${repository.name}</h1>
             <p class="repositories__description">Without description</p>
-            <div class="repositories__link>
+            <div class="repositories__link">
             <a href="${repository.html_url}" target="_blank">See on Github</a>
             </div>
             `;
